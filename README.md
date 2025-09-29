@@ -1,3 +1,130 @@
+<h1 align="center">⚡API CRUD com NestJS + Prisma + SQLite + Insomnia⚡</h1>
+
+Projeto desenvolvido em sala de aula como parte das práticas de **Desenvolvimento Web Backend**, implementando uma API REST simples para o recurso `/usuario`.
+
+A aplicação foi construída com **NestJS + Prisma ORM + SQLite** e testada no **Insomnia**, aplicando corretamente os métodos HTTP e retornando os status adequados.
+
+---
+
+## 🚀 Funcionalidades Implementadas
+
+### 🔹 Métodos HTTP:
+- **POST /usuario** → Cria um novo usuário (valida `nome`, `cpf`, `email`, impede duplicados).  
+- **GET /usuario** → Lista todos os usuários cadastrados.  
+- **PUT /usuario/:id** → Atualiza os dados de um usuário existente (retorna `404` caso não exista).  
+- **DELETE /usuario/:id** → Remove um usuário pelo ID.  
+
+### 🔹 Status Codes utilizados:
+- `200` → Requisição bem-sucedida.  
+- `201` → Registro criado com sucesso.  
+- `400` → Erro de validação / dados duplicados.  
+- `404` → Registro não encontrado.  
+
+---
+
+## 🛠️ Como Executar o Projeto
+
+### Pré-requisitos:
+- Node.js (versão LTS) → [nodejs.org](https://nodejs.org)  
+- NestJS CLI instalado globalmente  
+  ```bash
+  npm i -g @nestjs/cli
+  ```
+- VS Code com extensões recomendadas:
+  - Dracula Official  
+  - Material Icon Theme  
+  - DotENV  
+  - Prisma e Prisma Insider  
+  - SQLite + SQLite Viewer  
+  - Prettier – Code Formatter  
+
+### Passo a passo:
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/vitormanoelvb/projeto-desenvolvido-em-sala-de-aula-dw
+   cd projeto-desenvolvido-em-sala-de-aula-dw
+   ```
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+3. Configure o banco de dados SQLite (já existe um `.env` padrão):
+   ```env
+   DATABASE_URL="file:./dev.db"
+   ```
+4. Gere o banco e aplique a migration inicial:
+   ```bash
+   npx prisma migrate dev --name init
+   ```
+5. Rode o projeto:
+   ```bash
+   npm run start:dev
+   ```
+   Servidor disponível em: **http://localhost:3000**
+
+---
+
+## 🔍 Testando a API no Insomnia
+
+Rotas disponíveis:  
+
+### Criar usuário (POST)
+```json
+{
+  "nome": "Ana",
+  "cpf": "12345678900",
+  "email": "ana@exemplo.com"
+}
+```
+
+### Listar usuários (GET)
+```
+GET http://localhost:3000/usuario
+```
+
+### Atualizar usuário (PUT)
+```json
+{
+  "nome": "Ana Maria",
+  "cpf": "12345678900",
+  "email": "ana.maria@exemplo.com"
+}
+```
+
+### Excluir usuário (DELETE)
+```
+DELETE http://localhost:3000/usuario/{id}
+```
+
+---
+
+## 🖥️ Tecnologias Utilizadas
+- **Node.js + NestJS** (backend)  
+- **Prisma ORM** (mapeamento e migrations)  
+- **SQLite** (banco de dados local)  
+- **Insomnia** (testes de API)  
+- **VS Code** (IDE)  
+
+---
+
+## 📌 Scripts úteis
+```bash
+npm run start        # Executar em produção
+npm run start:dev    # Executar em desenvolvimento
+npm run build        # Compilar o projeto
+npm run test         # Executar testes unitários
+npm run test:e2e     # Executar testes end-to-end
+npx prisma studio    # Abrir interface gráfica do Prisma
+```
+
+---
+
+## 🔗 Links Importantes
+- 👨‍💻 Autor: [Vitor Manoel Vidal Braz](https://github.com/vitormanoelvb)  
+- 📂 Repositório: [Projeto Desenvolvido em Sala - DW](https://github.com/vitormanoelvb/projeto-desenvolvido-em-sala-de-aula-dw)  
+
+---
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
